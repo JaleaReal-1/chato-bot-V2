@@ -7,7 +7,7 @@ export interface Prenda {
     tipo: string;
     color: string;
     descripcion: string;
-    imagenUrl: string; // URL .glb
+    imagenUrl: string; // URL al .glb
 }
 
 interface RespuestaChatDTO {
@@ -16,7 +16,7 @@ interface RespuestaChatDTO {
 }
 
 interface ChatProps {
-    onAgregarPrenda: (urlPrenda: string) => void;
+    onAgregarPrenda: (urlPrenda: string, tipo: string) => void;
 }
 
 export default function Chat({ onAgregarPrenda }: ChatProps) {
@@ -24,7 +24,7 @@ export default function Chat({ onAgregarPrenda }: ChatProps) {
     const [esperando, setEsperando] = useState<boolean>(false);
     const [respuesta, setRespuesta] = useState<RespuestaChatDTO>({
         mensaje: "",
-        prendas: []
+        prendas: [],
     });
     const [error, setError] = useState<string>("");
 
@@ -94,9 +94,7 @@ export default function Chat({ onAgregarPrenda }: ChatProps) {
                     }}
                 >
                     <strong>Bot dice:</strong>
-                    <p style={{ whiteSpace: "pre-wrap", margin: "8px 0 0 0" }}>
-                        {respuesta.mensaje}
-                    </p>
+                    <p style={{ whiteSpace: "pre-wrap", margin: "8px 0 0 0" }}>{respuesta.mensaje}</p>
                 </div>
             )}
 
@@ -126,7 +124,7 @@ export default function Chat({ onAgregarPrenda }: ChatProps) {
                                     </small>
                                 </div>
                                 <button
-                                    onClick={() => onAgregarPrenda(p.imagenUrl)}
+                                    onClick={() => onAgregarPrenda(p.imagenUrl, p.tipo)}
                                     style={{
                                         marginLeft: 8,
                                         padding: "6px 12px",
@@ -137,7 +135,7 @@ export default function Chat({ onAgregarPrenda }: ChatProps) {
                                         cursor: "pointer",
                                     }}
                                 >
-                                    Añadir / quitar
+                                    Añadir
                                 </button>
                             </li>
                         ))}

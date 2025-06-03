@@ -4,26 +4,28 @@ import Chat from "./components/Chat";
 import AvatarScene from "./components/AvatarScene";
 
 const App: React.FC = () => {
-    // Estado que almacena URLs de las prendas que el usuario ha añadido
-    const [prendasSeleccionadas, setPrendasSeleccionadas] = useState<string[]>([]);
+    // Estado que almacenará { url: string, tipo: string } de cada prenda añadida
+    const [prendasSeleccionadas, setPrendasSeleccionadas] = useState<{ url: string; tipo: string }[]>([]);
 
-    const handleAgregarPrenda = (urlPrenda: string) => {
-        setPrendasSeleccionadas((prev) =>
-            prev.includes(urlPrenda)
-                ? prev.filter((u) => u !== urlPrenda)
-                : [...prev, urlPrenda]
-        );
+    const handleAgregarPrenda = (urlPrenda: string, tipoPrenda: string) => {
+        setPrendasSeleccionadas((prev) => {
+            // Si ya existe esa URL, no la duplicamos
+            if (prev.some((p) => p.url === urlPrenda)) {
+                return prev;
+            }
+            return [...prev, { url: urlPrenda, tipo: tipoPrenda }];
+        });
     };
-
 
     return (
         <div style={{ display: "flex", width: "100vw", height: "100vh" }}>
-            {/* Panel izquierdo: Chat + lista de prendas */}
+            {/* Panel izquierdo: Chat */}
             <div
                 style={{
                     width: "30%",
                     backgroundColor: "#111",
                     overflowY: "auto",
+                    padding: "1rem",
                 }}
             >
                 <Chat onAgregarPrenda={handleAgregarPrenda} />
