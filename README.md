@@ -32,29 +32,51 @@ El sistema permite a los clientes de **INFOTEL**:
 ## 🗂️ Estructura del Proyecto
 
 frontend/
+
 ├── App.tsx # Contenedor principal del layout
+
 ├── index.tsx # Punto de entrada React
+
 ├── components/
+
 │ ├── Chat.tsx # Componente de chatbot
+
 │ ├── Catalogo.tsx # Catálogo de prendas (carrusel/grid)
+
 │ └── AvatarScene.tsx # Visualización 3D con Three.js
+
 └── pages/
+
 └── Comprar.tsx # Formulario de compra
 
 backend/
-├── controller/
+
+├── controller
+
 │ ├── PrendaController.java
+
 │ └── ChatController.java
-├── model/
-│ └── Prenda.java
+
+├── model
+
+│ └── Prenda.
+
 ├── service/
+
 │ ├── PrendaService.java
+
 │ └── ChatService.java
+
 ├── dto/
+
 │ └── RespuestaChatDTO.java
+
 ├── repository/
+
 │ └── PrendaRepository.java
+
 └── INFOTELApplication.java
+
 
 
 ---
