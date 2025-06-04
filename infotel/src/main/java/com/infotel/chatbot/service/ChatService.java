@@ -32,17 +32,28 @@ public class ChatService {
 
         try {
             String promptMejorado = """
-                Por favor, devuelve únicamente un JSON con una lista de prendas, 
-                donde cada prenda tiene estos atributos: tipo, color y descripcion. 
-                No agregues ningún texto adicional, solo el JSON. 
-                Ejemplo de respuesta esperada:
+                    Por favor, devuelve únicamente un JSON con una lista de prendas, 
+                    donde cada prenda tiene estos atributos: tipo, color y descripcion. 
+                    No agregues ningún texto adicional, solo el JSON. 
+                    Ejemplo de respuesta esperada:
 
-                [
-                  {"tipo": "camisa", "color": "azul", "descripcion": "casual"},
-                  {"tipo": "pantalon", "color": "negro", "descripcion": "formal"}
-                ]
+                    [
+                      {"tipo": "camisa", "color": "azul", "descripcion": "casual"},
+                      {"tipo": "pantalon", "color": "negro", "descripcion": "formal"}
+                    ]
+                                    
+                    te voy a mandar un json para que alimente tu informacion sobre el 
+                    catalogo que tenemos en la empresa:
+                        [
+                        {"id":"1","tipo":"chaqueta","color":"cafe","descripcion":"una chaqueta de color cafe especialmente para el frio de los andes peruanos","imagen_url":"chaqueta.glb","nombre":"Chaqueta Andina\\n","precio":"89.9","material":"lana de alpaca","imagen":null},
+                        {"id":"2","tipo":"chaleco","color":"gris , oscuro","descripcion":"Chaleco tejido de corte recto, ideal para climas frescos, con diseño asimétrico y bolsillos frontales amplios.","imagen_url":"CARDIGAN_CHINO.glb","nombre":"Cardigan Chino","precio":"79.9","material":"lana de alpaca","imagen":null},
+                        {"id":"3","tipo":"vestido","color":"llamita, cafe","descripcion":"Vestido corto que usualmente se usa para eventos formales, trabajo y actividades al aire libre.","imagen_url":"polivestido.glb","nombre":"Poli Vestido Tortuga","precio":"129.9","material":"tela fina","imagen":null},
+                        {"id":"4","tipo":"vestido_capela","color":"gris , con bolsillos decorados blanco, marron, negro, en forma circular","descripcion":"Ideal para temporada de frio tejido de alpaca y capucha para el frio y para estar vestido para dias casuales.\\ncon capucha y bolsillos","imagen_url":"polivestido_capela.glb","nombre":"Poli Vestido Capela","precio":"149.9","material":"lana de alpaca","imagen":null},
+                        {"id":"5","tipo":"Poncho","color":"Azul marino con franjas beige y marrón","descripcion":"Poncho artesanal de corte amplio, abotonado en el cuello, ideal para clima frío con estilo tradicional andino.","imagen_url":"Poncho_tortuga.glb","nombre":"Poncho Tortuga","precio":"99.9","material":"lana de aplaca","imagen":null},
+                        {"id":"6","tipo":"Chompa","color":"Azul con patrones en relieve","descripcion":"Chompa de punto azul con diseño de texturas variadas, ideal para un look casual y abrigado en tiempos de frio. ","imagen_url":"SWEATER_PUNTO_VARON.glb","nombre":"Chompa Andina","precio":"89.9","material":"lana de alpaca","imagen":null}
+                        ]
 
-                Prompt de usuario: """ + prompt;
+                    Prompt de usuario: """ + prompt;
 
             Map<String, Object> requestBody = Map.of(
                     "model", "llama3-8b-8192",
