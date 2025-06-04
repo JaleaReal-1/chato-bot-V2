@@ -4,10 +4,13 @@ import axios from "axios";
 
 export interface Prenda {
     id: number;
+    nombre: string;
     tipo: string;
     color: string;
     descripcion: string;
-    imagenUrl: string; // URL al .glb
+    imagenUrl: string;
+    precio: number;
+    material: string;
 }
 
 interface RespuestaChatDTO {
@@ -117,8 +120,11 @@ export default function Chat({ onAgregarPrenda }: ChatProps) {
                             >
                                 <div>
                                     <p style={{ margin: "0 0 4px 0", color: "#ddd" }}>
-                                        <strong>{capitalize(p.tipo)}</strong> {p.color} — {p.descripcion}
+                                        <strong>{capitalize(p.nombre)}</strong> – {p.tipo} {p.color}<br />
+                                        <em>{p.descripcion}</em><br />
+                                        <span style={{ color: "#aaa" }}>Material: {p.material} | Precio: S/. {p.precio.toFixed(2)}</span>
                                     </p>
+
                                     <small style={{ color: "#888" }}>
                                         <code>{p.imagenUrl}</code>
                                     </small>

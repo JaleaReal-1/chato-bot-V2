@@ -6,6 +6,13 @@ public class PrendaDTO {
     private String descripcion;
     private String imagenUrl; // ➕ Nuevo campo
 
+
+
+    //NUEVOS CAMPOS:
+    private String nombre;
+    private Double precio;
+    private String material;
+
     public PrendaDTO() {}
 
     public String getTipo() { return tipo; }
@@ -19,4 +26,13 @@ public class PrendaDTO {
 
     public String getImagenUrl() { return imagenUrl; }
     public void setImagenUrl(String imagenUrl) { this.imagenUrl = imagenUrl; }
+
+    public String getNombre() {return nombre;}
+    public void setNombre(String nombre) {this.nombre = nombre;}
+
+    public Double getPrecio() {return precio;}
+    public void setPrecio(Double precio) {this.precio = precio;}
+
+    public String getMaterial() {return material;}
+    public void setMaterial(String material) {this.material = material;}
 }

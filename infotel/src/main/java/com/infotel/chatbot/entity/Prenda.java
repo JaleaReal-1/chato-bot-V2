@@ -23,6 +23,13 @@ public class Prenda {
     @JsonProperty("imagenUrl") // 👈 Asegura que Jackson lo use como nombre camelCase
     private String imagenUrl;
 
+
+
+    //NUEVOS CAMPOS:
+    private String nombre;
+    private Double precio;
+    private String material;
+
     // Constructor vacío
     public Prenda() {
     }
@@ -66,6 +73,30 @@ public class Prenda {
 
     public void setImagenUrl(String imagenUrl) {
         this.imagenUrl = imagenUrl;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public String getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(String tela) {
+        this.material = tela;
     }
 
 }

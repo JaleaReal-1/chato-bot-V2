@@ -79,10 +79,13 @@ function ParticleBackground() {
 
 // Map que asocia cada *tipo* de prenda a su transform en el avatar
 const transformsPorTipo: Record<string, { scale: number; position: [number, number, number]; rotation: [number, number, number] }> = {
-    chaqueta: { scale: 1.5, position: [-0.05, 1.56, 0.082], rotation: [0, 3.48, 0] },
-    camisa: { scale: 1.5, position: [0, 1.5, 0], rotation: [0, 0, 0] },
-    pantalon: { scale: 1.5, position: [0, 0.9, 0], rotation: [0, 0, 0] },
+    chaqueta: { scale: 1.2, position: [0, 1.73, 0.082], rotation: [0, 4.75, 0] },
+    chaleco: { scale: 1.45, position: [-0.05, 1.62, 0.04], rotation: [0, 4.75, 0] },
+    vestido: { scale: 1.25, position: [-0.01, 1.72, 0.0015], rotation: [0, 4.65 , 0] },
+    vestido_capela: { scale: 1.25, position: [-0.0, 1.72, 0.02], rotation: [0, 4.65 , 0] },
+    poncho: { scale: 1.4, position: [-0, 1.62, -0.015], rotation: [0, 4, 0] },
     sombrero: { scale: 1.5, position: [0, 1.9, 0], rotation: [0, 0, 0] },
+    Chompa: { scale: 1.5, position: [0, 1.73, 0.082], rotation: [0, 4, 0] },
     // Agrega más tipos según necesites, con sus valores de transform
 };
 

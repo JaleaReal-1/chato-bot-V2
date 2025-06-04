@@ -103,14 +103,17 @@ public class ChatService {
             List<PrendaDTO> prendasDtoFinales = new ArrayList<>();
             for (Prenda prenda : prendasFinales) {
                 PrendaDTO dto = new PrendaDTO();
+                dto.setNombre(prenda.getNombre());
                 dto.setTipo(prenda.getTipo());
+                dto.setMaterial(prenda.getMaterial());
                 dto.setColor(prenda.getColor());
                 dto.setDescripcion(prenda.getDescripcion());
+                dto.setPrecio(prenda.getPrecio());
                 // Armar la URL completa apuntando a src/main/resources/static/modelos/{archivo.glb}
                 dto.setImagenUrl(BASE_URL_PRENDAS + prenda.getImagenUrl());
                 prendasDtoFinales.add(dto);
             }
-            // 🔄 Fin de la parte modificada
+
 
             // Generar respuesta del bot con estilo
             String resumenPrompt = generarPromptResumen(prendasFinales);
@@ -127,16 +130,20 @@ public class ChatService {
 
     private String generarPromptResumen(List<Prenda> prendas) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Estas son las prendas disponibles:\n");
+        sb.append("Eres un asesor de moda de INFOTEL, una marca que combina tradición textil peruana con tecnología.\n");
+        sb.append("Estas son las prendas seleccionadas por el usuario:\n");
 
         for (Prenda prenda : prendas) {
-            sb.append(String.format("- %s %s (%s)\n",
-                    capitalize(prenda.getTipo()), prenda.getColor(), prenda.getDescripcion()));
+            sb.append(String.format("- %s %s de %s (%s)\n",
+                    capitalize(prenda.getTipo()), prenda.getColor(), prenda.getMaterial(), prenda.getDescripcion()));
         }
 
-        sb.append("\nPor favor, como asistente de moda, sugiere combinaciones, consejos de estilo, o cómo podrían usarse estas prendas para distintas ocasiones. Agrega emojis si lo consideres útil.");
+        sb.append("\nRedacta una respuesta breve, amigable y cercana (máximo 2 o 3 frases). Puedes incluir emojis. Ejemplo de estilo:\n");
+        sb.append("\"¡Genial elección! La camisa azul de algodón combina perfecto con ese pantalón formal. 😎 ¿Quieres ver cómo queda en el avatar?\"\n");
+        sb.append("Evita repetir las prendas literalmente, enfócate en dar una impresión general positiva y coherente con el estilo elegido.");
         return sb.toString();
     }
+
 
     private String generarRespuestaBot(String prompt, String apiKey) {
         try {
