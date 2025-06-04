@@ -119,26 +119,26 @@ Contenedor principal. Distribuye:
 
 ### `RespuestaChatDTO.java`
 ```java
-public class RespuestaChatDTO {
-    private String mensaje;
-    private List<Prenda> prendas;
-}
+    public class RespuestaChatDTO {
+        private String mensaje;
+        private List<Prenda> prendas;
+    }
+    
+    ### `Prenda.java`
+    @Entity
+    public class Prenda {
+        private Long id;
+        private String nombre;
+        private String tipo;
+        private String color;
+        private String material;
+        private Double precio;
+        private String imagenUrl;
+    }
+```
+### `🗃️ Base de Datos (MySQL)`
 
-### `Prenda.java`
-@Entity
-public class Prenda {
-    private Long id;
-    private String nombre;
-    private String tipo;
-    private String color;
-    private String material;
-    private Double precio;
-    private String imagenUrl;
-}
-
-🗃️ Base de Datos (MySQL)
-
-🔁 Flujo del Sistema
+### `🔁 Flujo del Sistema
 
 Usuario escribe en el chat: “ponle una camisa azul”.
 
@@ -156,7 +156,7 @@ Al terminar, hace clic en Finalizar compra.
 
 Se redirige a /comprar, donde llena sus datos.
 
-🏁 Créditos
+### `🏁 Créditos
 Proyecto desarrollado en el marco de una Hackathon regional con enfoque en tecnología e identidad cultural, representando a INFOTEL BUSINESS S.A.C. – Juliaca, Puno, Perú 🇵🇪
 
 
