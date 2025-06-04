@@ -12,8 +12,17 @@ public class PrendaDTO {
     private String nombre;
     private Double precio;
     private String material;
+    private String imagen;
 
     public PrendaDTO() {}
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
 
     public String getTipo() { return tipo; }
     public void setTipo(String tipo) { this.tipo = tipo; }

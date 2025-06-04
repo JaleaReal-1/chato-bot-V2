@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Prenda } from "./Chat";
+import ModelViewer from "./ModelViewer";
 
 interface CatalogoProps {
     onAgregarPrenda: (urlPrenda: string, tipo: string) => void;
@@ -41,11 +42,10 @@ export default function Catalogo({ onAgregarPrenda, modoCarrusel }: CatalogoProp
                                 justifyContent: "space-between"
                             }}
                         >
-                            <img
-                                src={p.imagenUrl}
-                                alt={p.nombre}
-                                style={{ width: "100%", height: 120, objectFit: "cover", borderRadius: 6, marginBottom: 8 }}
-                            />
+                            <div style={{ height: 180, marginBottom: 8, backgroundColor:"white" }}>
+                                <ModelViewer url={p.imagenUrl} />
+                            </div>
+
                             <strong style={{ color: "#fff" }}>{capitalize(p.nombre)}</strong>
                             <p style={{ color: "#aaa", fontSize: "0.85rem", margin: "4px 0" }}>
                                 {p.tipo} - {p.color}<br />

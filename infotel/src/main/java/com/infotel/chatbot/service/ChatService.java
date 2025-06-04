@@ -111,6 +111,7 @@ public class ChatService {
                 dto.setPrecio(prenda.getPrecio());
                 // Armar la URL completa apuntando a src/main/resources/static/modelos/{archivo.glb}
                 dto.setImagenUrl(BASE_URL_PRENDAS + prenda.getImagenUrl());
+                dto.setImagen(BASE_URL_PRENDAS + prenda.getImagen());
                 prendasDtoFinales.add(dto);
             }
 

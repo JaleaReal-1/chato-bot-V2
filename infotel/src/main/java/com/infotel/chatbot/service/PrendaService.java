@@ -24,6 +24,7 @@ public class PrendaService {
     public List<PrendaDTO> obtenerTodas() {
         String baseUrl = "http://localhost:" + port + "/modelos/";
 
+
         return prendaRepository.findAll().stream().map(prenda -> {
             PrendaDTO dto = new PrendaDTO();
             dto.setNombre(prenda.getNombre());
@@ -32,6 +33,8 @@ public class PrendaService {
             dto.setColor(prenda.getColor());
             dto.setDescripcion(prenda.getDescripcion());
             dto.setImagenUrl(baseUrl + prenda.getImagenUrl());
+            dto.setImagen(baseUrl + prenda.getImagen());
+
 
             // nuevos campos
 

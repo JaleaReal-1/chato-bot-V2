@@ -30,8 +30,20 @@ public class Prenda {
     private Double precio;
     private String material;
 
+
+
+    private String imagen;
+
     // Constructor vacío
     public Prenda() {
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     // Getters y Setters
